@@ -1,0 +1,6 @@
+set terminal jpeg
+set output 'Cubic.jpeg'
+set xlabel 'x'
+set ylabel 'f(x)'
+set title 'f(x) as a function of x'
+plot 'cubicfunc' with lines

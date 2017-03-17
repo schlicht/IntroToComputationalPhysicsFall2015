@@ -1,0 +1,5 @@
+set terminal jpeg
+set output 'prob2c.jpeg'
+set xlabel 'x'
+set ylabel 'f(x)'
+plot 'prob2c.dat'

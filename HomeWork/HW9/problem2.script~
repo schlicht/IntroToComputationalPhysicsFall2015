@@ -1,0 +1,8 @@
+set terminal jpeg
+set output 'problem2a.jpeg'
+set xlabel 'r'
+set ylabel 'x'
+plot 'problem2010' using 1:2 title 'n=1' with lines, \
+     'problem2015' using 1:2 title 'n=1.5' with lines, \
+     'problem2020' using 1:2 title 'n=2' with lines, \
+     'problem2025' using 1:2 title 'n=2.5' with lines, \

@@ -1,0 +1,6 @@
+set terminal jpeg
+set output 'ForwardDiffError.jpeg'
+set xlabel 'n'
+set ylabel 'log(error)'
+set title 'log(error) v. log(n) values with Forward Differentiation'
+plot 'forwarddifferror' with lines

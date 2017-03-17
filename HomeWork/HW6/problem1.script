@@ -1,0 +1,10 @@
+set terminal jpeg
+set output 'transformmethod.jpeg'
+set xlabel 'i'
+set title 'Distribution Using Transformation Method'
+plot 'binstrans.dat' with lines
+
+set output 'rejectmethod.jpeg'
+set xlabel 'i'
+set title 'Distribution Using the rejection Method'
+plot 'binsrej.dat' with lines

@@ -1,0 +1,11 @@
+set terminal jpeg
+set output 'prob1cyvtime.jpeg' 
+set xlabel 'x(i)'
+set ylabel 'y(i)'
+set title 'Initial y value is 1'
+plot 'prob1c10000.dat' using 1:2 title 'init 1.0' with lines, \
+     'prob1c15000.dat' using 1:2 title 'init 1.5' with lines, \
+     'prob1c31415.dat' using 1:2 title 'init Pi/2' with lines, \
+     'prob1b12800.dat' using 1:2 title 'linear sol' with lines
+
+

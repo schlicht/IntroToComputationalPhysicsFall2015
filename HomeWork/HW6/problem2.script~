@@ -1,0 +1,6 @@
+set terminal jpeg
+set output "Problem2.jpeg"
+set xlabel "i"
+set ylabel "Atoms Remaining"
+set title "Remaining Atoms per Unit Time"
+plot "decay.dat" with lines

@@ -1,0 +1,3 @@
+set terminal jpeg
+set output 'lab5plot.jpeg'
+plot 'output.dat' with lines

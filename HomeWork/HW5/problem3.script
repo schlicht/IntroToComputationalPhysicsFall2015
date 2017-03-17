@@ -1,0 +1,12 @@
+set terminal jpeg
+set output 'problem3gandh.jpeg'
+set xlabel 'i'
+set title 'g and h vectors'
+plot 'gandh.dat' using 1:2 title 'g(i)' with lines, \
+     'gandh.dat' using 1:3 title 'h(i)' with lines 
+set output 'problem3bandx.jpeg'
+set xlabel 'i'
+set yrange [-0.2:0.7]
+set title 'x and b vectors'
+plot 'bandx.dat' using 1:2 title 'x(i)' with lines, \
+     'bandx.dat' using 1:3 title 'b(i)' with lines

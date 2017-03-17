@@ -1,0 +1,8 @@
+set terminal jpeg
+set output 'prob2bf.jpeg'
+set xlabel 'x'
+set ylabel 'f(x)'
+plot 'prob2b.dat' using 1:2 with lines
+set output 'prob2berror.jpeg'
+set ylabel 'error'
+plot 'prob2b.dat' using 1:3 with lines

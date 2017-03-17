@@ -1,0 +1,15 @@
+set terminal jpeg
+set output 'problem2bnis3.jpeg'
+set xlabel 'r'
+set ylabel 'Pressure and density'
+plot 'problem2b30.dat' using 1:2 title 'density' with lines, \
+     'problem2b30.dat' using 1:3 title 'Pressure' with lines,\
+
+set output 'problem2bnis3halfs.jpeg'
+plot 'problem2b15.dat' using 1:2 title 'density' with lines, \
+     'problem2b15.dat' using 1:3 title 'Pressure' with lines,\
+
+set output 'problem2bmasses.jpeg'
+set ylabel 'Mass inside radius r'
+plot 'problem2b30.dat' using 1:2 title 'n=3' with lines, \
+     'problem2b15.dat' using 1:4 title 'n=1.5' with lines

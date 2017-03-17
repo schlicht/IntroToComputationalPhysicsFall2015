@@ -1,0 +1,7 @@
+set terminal jpeg
+set output 'prob1cphase.jpeg'
+set xlabel 'y(i)'
+set ylabel 'v(i)'
+plot 'prob1c10000.dat' using 2:3 title 'init 1.0' with lines, \
+     'prob1c15000.dat' using 2:3 title 'init 1.5' with lines, \
+     'prob1c31415.dat' using 2:3 title 'init Pi/2' with lines 

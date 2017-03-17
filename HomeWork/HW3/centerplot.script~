@@ -1,0 +1,6 @@
+set terminal jpeg
+set output 'CentralDiffError.jpeg'
+set xlabel 'n'
+set ylabel 'log(error)'
+set title 'log(error) v. n values with Central Differentiation'
+plot 'centraldifferror' with lines

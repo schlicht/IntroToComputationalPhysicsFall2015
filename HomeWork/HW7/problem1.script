@@ -1,0 +1,6 @@
+set terminal jpeg
+set output 'problem1.jpeg'
+set xlabel 'log(N)'
+set ylabel 'log(time)'
+set title 'log(time) as a function of log(N)'
+plot 'problem1.dat' with lines

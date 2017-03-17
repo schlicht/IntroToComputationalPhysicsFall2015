@@ -1,0 +1,7 @@
+set terminal jpeg
+set output 'problem1aj(11).jpeg'
+set xlabel 'x'
+set ylabel 'j(x)'
+set title 'j(11) values'
+set xtics (1, 2, 3, 4)
+plot 'problem1adata' with lines

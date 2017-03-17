@@ -1,0 +1,75 @@
+!#########################################
+! Name: Problem2
+! Purpose: Perform Predictor-Executer Method
+! History: Made by schli242 on 11/8/15
+!#########################################
+
+      Program Problem2
+      Implicit None
+      Real*8, Dimension(1:2) :: t0=(/ DBLE(0), DBLE(12.56637061) /)
+      Open(unit=9, file='prob2error.dat')
+      Call predictor(400, t0, DBLE(0.01), 10, 'prob200400.dat')
+      Call predictor(800, t0, DBLE(0.01), 11, 'prob200800.dat')
+      Call predictor(1600, t0, DBLE(0.01), 12, 'prob201600.dat')
+      Call predictor(3200, t0, DBLE(0.01), 13, 'prob203200.dat')
+      Call predictor(6400, t0, DBLE(0.01), 14, 'prob206400.dat')
+      Call predictor(12800, t0, DBLE(0.01), 15, 'prob212800.dat')
+      Write(*,*) "The predictor method converges more slowly and has a higher", &
+                 " error than the Runge Kutta Method"
+      Write(*,*) "Since error decreases as dt decreases over the range tested ", &
+                 ", the optimal dt is much smaller where machine accuracy is important"
+      Contains
+      Subroutine predictor(N, t0, yinit, u, str)
+      Implicit None
+      Integer, Intent(in) :: N, u
+      Real*8, Dimension(1:2), Intent(in) :: t0
+      Real*8, Intent(in) :: yinit
+      Character(len=14), Intent(in) :: str
+      Real*8, Dimension(1:2) :: b, c, d, e, f
+      Real*8, Dimension(1:N) :: t, y, vy
+      Real*8 :: dt, g, h, merror, mverror, maxerror, maxverror
+      Integer :: i
+      Open(unit=u, file=str)
+      b = (/0, 0/)
+      c = (/ 3.0/2.0, -1.0/2.0 /)
+      d = (/ 4.0/3.0, -1.0/3.0/)
+      e = (/ 0.5, 0.5/)
+      f = (/ 1.0/3.0, 2.0/3.0/)
+      dt = (t0(2)-t0(1))/N
+      Do i=1, N
+        t(i)=t0(1)+dt*i
+      End do
+      y(1) = yinit
+      vy(1) = 0
+      
+      Do i=1, N
+        g = c(1)*b(1)+ c(2)*b(2)
+        h = d(1)*b(1) +d(2)*b(2)
+        vy(i+1) = vy(i)+ dt*g
+        y(i+1) = y(i)+vy(i)*dt + 0.5*(dt**2)*h
+
+        b(2)=b(1)
+        b(1) = -y(i+1)
+        g = e(1)*b(1) + e(2)*b(2)
+        h = f(1)*b(1) + f(2)*b(2)
+        vy(i+1) = vy(i) + dt*g
+        y(i+1) = y(i) + vy(i)*dt + 0.5*(dt**2)*h
+      End do
+      Do i=1, N
+        Write(u, *) t(i), y(i)
+      End do
+      maxerror=-100
+      maxverror=-100
+      Do i=1, N
+        merror=log(abs(y(i)-0.01*cos(t(i-1)))*10**(2))
+        mverror=log(abs(vy(i)+0.01*sin(t(i-1)))*10**(2))
+        if(merror>maxerror) then
+          maxerror= merror
+        end if
+        if(mverror>maxverror) then
+          maxverror =mverror
+        end if
+      End Do
+      Write(9,*) log(dt), maxerror, maxverror
+      End subroutine predictor
+      End Program Problem2

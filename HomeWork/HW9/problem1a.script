@@ -1,0 +1,8 @@
+set terminal jpeg
+set output 'phasediagram.jpeg'
+set xlabel 'x(i)/x0'
+set ylabel 'v(i)/v0)'
+set title 'Phase Diagram of Anharmonic Oscillator'
+plot 'prob1010000.dat' using 2:3 title 'x0=0.1' with lines, \
+     'prob1050000.dat' using 2:3 title 'x0=0.5' with lines, \
+     'prob1099000.dat' using 2:3 title 'x0=0.99' with lines

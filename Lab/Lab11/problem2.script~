@@ -1,0 +1,11 @@
+set terminal jpeg
+set xlabel 't'
+set ylabel 'h(t)'
+
+set output 'cosin05.jpeg'
+plot 'cosin05.dat' using 1:2 title 'real' with lines, \
+     'cosin05.dat' using 1:3 title 'imaginary' with lines
+set output 'sine005.jpeg'
+plot 'sine005.dat' using 1:2 title 'real' with lines, \
+     'sine005.dat' using 1:3 title 'imaginary' with lines
+

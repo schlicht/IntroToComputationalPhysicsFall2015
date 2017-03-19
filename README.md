@@ -1,4 +1,4 @@
-# IntroToComputationalPhysicsFall2015
+# Introduction To Computational Physics Fall 2015
 
 My Introduction to Computational Physics Homework from Fall of 2015. The class was derived from the book [Computational Physics](https://www.amazon.com/Computational-Physics-Introduction-Franz-Vesely/dp/0306466317) and covers mainly stochastic processes and techniques for solving differential equations.
 
